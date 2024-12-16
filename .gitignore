@@ -1,0 +1,51 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+*.dylib
+*.egg-info/
+dist/
+build/
+*.tgz
+*.egg
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+*.db
+*.bak
+*.swp
+*.swo
+*.pdb
+*.coverage
+*.hypothesis/
+cover/
+
+# Environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.env
+project-env/
+
+# MySQL
+*.sql
+*.sql.gz
+
+# VS Code
+.vscode/
+
+
+
+# Docker
+docker-compose.override.yml
+
+
+# Other
+*.log
