@@ -8,12 +8,17 @@ from .models import SignUpForTraining
 from .serializers import SignUpForTrainingSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework.decorators import action
+from rest_framework import filters
+from gym.permissions import IsAdminOrReadOnly 
 
 class TrainingViewSet(viewsets.ModelViewSet):
     queryset = Training.objects.all()
     serializer_class = TrainingSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['data_training', 'time']
+    permission_classes = [IsAdminOrReadOnly] 
     
-    @action(detail=False, methods=['get'], url_path='my-trainings')
+    @action(detail=False, methods=['get'], url_path='my-trainings' , permission_classes=[IsAuthenticated])
     def my_trainings(self, request):
         user = request.user
         trainings = Training.objects.filter(signupfortraining__id_client=user)
