@@ -5,7 +5,7 @@ class Abonement(models.Model):
     end_date = models.DateField()
     money = models.IntegerField()
     access = models.BooleanField(default=False)
-    id_client = models.ForeignKey(User, on_delete=models.CASCADE)  # Используем User вместо Client
+    id_client = models.ForeignKey(User, on_delete=models.CASCADE)  
     trigger_log = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
